@@ -1,0 +1,34 @@
+<!-- <div  class="container" *ngIf="notes">
+  <h1>{{ notes.noteName }}</h1>
+  <dl class="list">
+    <dt>noteInfo</dt>
+    <dd>{{ notes.noteInfo }}</dd>
+  </dl>
+</div> -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Info</th>
+      <th>Party</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="notes">
+      <td>{{ notes.noteId }}</td>
+      <td>{{ notes.noteName }}</td>
+
+      <td>{{ notes.noteInfo }}</td>
+      <td>{{ notes.noteParty }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-md-12">
+    <a [routerLink]="['/notes-edit', notes.noteId]" class="btn btn-success">EDIT</a>
+    <button class="btn btn-danger" type="button" (click)="deleteNote(notes.noteId)">DELETE</button>
+  </div>
+</div>

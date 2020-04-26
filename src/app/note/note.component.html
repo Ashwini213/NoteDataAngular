@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 align=center>Notes List</h1>
+  <a [routerLink]="['/create-note']" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"> Create Note</span>
+  </a>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Info</th>
+        <th>Party</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let note of notes">
+        <td>{{ note.noteId }}</td>
+        <td>{{ note.noteName }}</td>
+        <td>{{ note.noteInfo }}</td>
+        <td>{{ note.noteParty }}</td>
+        <td><a [routerLink]="['/notes-details', note.noteId]">Show Detail</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
