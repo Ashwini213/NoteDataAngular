@@ -1,29 +1,29 @@
 <div class="container">
-    <h1>Edit Note</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <form (ngSubmit)="updateNote(note.noteId, note)" #contactForm="ngForm">
-          <div class="form-group">
-            <label for="name">Id</label>
-            <input type="number" class="form-control" [(ngModel)]="note.noteId" name="noteId" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" [(ngModel)]="note.noteName" name="noteName" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Info</label>
-            <input type="text" class="form-control" [(ngModel)]="note.noteInfo" name="noteInfo" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Party</label>
-            <input type="text" class="form-control" [(ngModel)]="note.noteParty" name="noteParty" required>
-          </div>
-          
-          <div class="form-group">
-            <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Update</button>
-          </div>
-        </form>
-      </div>
+  <h1>Edit Note</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="updateNote(note.noteId, note)" #contactForm="ngForm">
+        <div class="form-group">
+          <label for="name">Id</label>
+          <input type="number" class="form-control" [(ngModel)]="note.noteId" name="noteId" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="note.noteName" name="noteName" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Info</label>
+          <input type="text" class="form-control" [(ngModel)]="note.noteInfo" name="noteInfo" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Party</label>
+          <input type="text" class="form-control" [(ngModel)]="note.noteParty" name="noteParty" required>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Update</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>

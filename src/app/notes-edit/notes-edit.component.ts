@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class NotesEditComponent implements OnInit {
   private baseUrl = 'http://localhost:8080/';
 
-  note:any;
+  note: any;
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
@@ -19,20 +19,20 @@ export class NotesEditComponent implements OnInit {
   }
 
   getNote(noteId) {
-    this.http.get(this.baseUrl+'/note/'+noteId).subscribe(data => {
+    this.http.get(this.baseUrl + '/note/' + noteId).subscribe(data => {
       this.note = data;
     });
 
   }
 
-  updateNote(noteId,data) {
-    this.http.put(this.baseUrl+'/note/'+noteId,data)
+  updateNote(noteId, data) {
+    this.http.put(this.baseUrl + '/note/' + noteId, data)
       .subscribe(res => {
-          let noteId = res['noteId'];
-          this.router.navigate(['/note']);
-        }, (err) => {
-          console.log(err);
-        }
+        let noteId = res['noteId'];
+        this.router.navigate(['/note']);
+      }, (err) => {
+        console.log(err);
+      }
       );
   }
 

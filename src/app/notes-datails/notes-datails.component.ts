@@ -22,11 +22,7 @@ export class NotesDatailsComponent implements OnInit {
     this.http.get(this.baseUrl + '/note/' + noteId).subscribe(data => {
       this.notes = data;
     });
-    // this.service.getNote(noteId).subscribe(resp => {
-    //   this.notes = resp;
-    // }, (error) => {
-    //   console.log(error);
-    // });
+
   }
   deleteNote(noteId) {
     this.http.delete(this.baseUrl + '/note/' + noteId).subscribe(res => {
@@ -35,12 +31,6 @@ export class NotesDatailsComponent implements OnInit {
       console.log(err);
     }
     );
-    // this.http.delete('/notes/' + noteId)
-    //   .subscribe(res => {
-    //     this.router.navigate(['/note']);
-    //   }, (err) => {
-    //     console.log(err);
-    //   }
-    //   );
+
   }
 }

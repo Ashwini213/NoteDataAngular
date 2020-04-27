@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../notes.service';
 import { NoteData } from '../note-data';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -11,29 +11,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-note.component.scss']
 })
 export class CreateNoteComponent implements OnInit {
-  private baseUrl = 'http://localhost:8080';
 
-  note: any;
+  constructor(private formBuilder: FormBuilder, private router: Router, private service: NotesService) { }
 
-  constructor(private http: HttpClient, private router: Router, private service: NotesService) { }
+  addForm: FormGroup;
 
   ngOnInit() {
+    this.addForm = this.formBuilder.group({
+      noteId: [],
+      noteName: ['', Validators.required],
+      noteInfo: ['', Validators.required],
+      noteParty: ['', Validators.required]
+
+    });
+
   }
 
-  // saveContact() {
-  //   this.http.post(this.baseUrl + '/note', this.note).subscribe(res => {
-  //     this.router.navigate(['/note', res]);
-  //   }, (err) => {
-  //     console.log(err);
-  //   }
-  //   );
-  // }
-
-  createNote(){
-    this.service.createNotes(NoteData).subscribe(res =>{
-      this.router.navigate(['/note', res]);
-    },(err)=>{
-      console.log(err);
-    } )
+  onSubmit() {
+    this.service.createNotes(this.addForm.value)
+      .subscribe(data => {
+        this.router.navigate(['/note']);
+      });
   }
+
 }

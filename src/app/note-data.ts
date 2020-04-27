@@ -4,4 +4,5 @@ export class NoteData {
     'noteInfo': string;
     'noteParty': string;
     
+    
 }
