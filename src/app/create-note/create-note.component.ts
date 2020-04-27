@@ -21,7 +21,8 @@ export class CreateNoteComponent implements OnInit {
       noteId: [],
       noteName: ['', Validators.required],
       noteInfo: ['', Validators.required],
-      noteParty: ['', Validators.required]
+      noteParty: ['', Validators.required],
+      noteDateTime: ['', Validators.required]
 
     });
 
